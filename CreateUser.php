@@ -2,7 +2,8 @@
 $mysqli = new mysqli('mysql.eecs.ku.edu', 'lormiston', 'P@$$word123', 'lormiston');
 
 $username = $_POST["username"];
-
+echo '<body>';
+echo '<div>';
 echo '<h2>';
 if ($username == ''){
   echo 'Username cannot be blank';
@@ -15,5 +16,10 @@ else {
   else{
     echo "$mysqli->error"
   }
+  $result->free();
 }
+echo '</h2>';
+echo '</div>';
+echo '</body>';
+$mysqli->close();
 ?>
