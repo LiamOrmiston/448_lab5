@@ -16,7 +16,7 @@
   }
   $exists = "SELECT * FROM Users WHERE user_id='".$username."';";
   $run_exists = $mysqli->query($exists);
-  elseif (mysqli_num_rows($run_exists) > 0) {
+  if (mysqli_num_rows($run_exists) > 0) {
     echo "<p>Username already exists. Please choose a different username.</p>";
   }
   else{
