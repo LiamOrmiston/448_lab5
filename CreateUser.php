@@ -19,11 +19,11 @@
   echo "past empty username check";
   $exists = "SELECT * FROM Users WHERE user_id='$username';";
   echo "created exists";
-  $result = $mysqli->query($exists);
-  echo "after result";
-  else if (mysqli_num_rows($result) > 0) {
-    echo "Username already exists. Please choose a different username."
-  }
+  // $result = $mysqli->query($exists);
+  // echo "after result";
+  // else if (mysqli_num_rows($result) > 0) {
+  //   echo "Username already exists. Please choose a different username."
+  // }
   else{
     $query = "INSERT INTO Users (user_id) VALUES ('$username')";
     if ($result = $mysqli->query($query)){
