@@ -15,7 +15,7 @@ if ($username == ''){
   echo 'Username cannot be blank';
 }
 else {
-  $query = "INSERT INTO Users (user_id) VALUES ('$user_id')";
+  $query = "INSERT INTO Users (user_id) VALUES ('$user_id');";
   if($result = mspli.query($username)) {
     echo "<p>Hello " . $username . "!</p>"
   }
