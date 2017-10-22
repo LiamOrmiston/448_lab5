@@ -19,7 +19,7 @@
   }
   else {
     $query = "INSERT INTO Users (user_id) VALUES ('" . $username . "');";
-    if($result = msqli->query($query)) {
+    if($result = msqli->query($username)) {
       echo "<p>Hello " . $username . "!</p>";
     }
     else{
