@@ -16,7 +16,7 @@
     echo 'Username cannot be blank';
   }
   $exists = "SELECT * FROM Users WHERE user_id=$username";
-  else if ($exists > 0) {
+  else if (mysqli_num_rows($exists) > 0) {
     echo "Username already exists. Please choose a different username."
   }
   else{
