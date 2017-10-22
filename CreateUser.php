@@ -17,8 +17,8 @@
     echo 'Username cannot be blank';
   }
   echo "past empty username check";
-  $exists = "SELECT * FROM Users WHERE user_id='$username'";
-  echo "created exists";
+  // $exists = "SELECT * FROM Users WHERE user_id='$username'";
+  // echo "created exists";
   // $result = $mysqli->query($exists);
   // echo "after result";
   // else if (mysqli_num_rows($result) > 0) {
