@@ -8,7 +8,7 @@
       printf("Connect failed: %s\n", $mysqli->connect_error);
       exit();
   }
-  
+
   $username = $_POST['username'];
   echo '<div>';
   echo '<h2>';
@@ -23,6 +23,7 @@
     else{
       echo "$mysqli->error";
     }
+    $result->free();
   }
   echo '</h2>';
   echo '</div>';
