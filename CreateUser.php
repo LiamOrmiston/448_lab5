@@ -18,9 +18,12 @@
     echo 'Username cannot be blank';
   }
   else {
-    $query = "INSERT INTO Users (user_id) VALUES ('" . $username . "');";
+    echo '<p>Inside else statement</p>';
+    $query = "INSERT INTO Users (user_id) VALUES ('$username')";
     if($result = mysqli.query($query)) {
+      echo "<p>In the if statement</p>";
       echo "<p>Hello " . $username . "!</p>";
+      echo "<p>username should have been posted above this line</p>";
     }
     else{
       echo "$mysqli->error";
