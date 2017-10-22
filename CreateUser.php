@@ -18,8 +18,8 @@
     echo 'Username cannot be blank';
   }
   else {
-    $query = "INSERT INTO Users (user_id) VALUES ('$username');";
-    if($result = mspli.query($username)) {
+    $query = "INSERT INTO Users (user_id) VALUES ('" . $username . "');";
+    if($result = msqli->query($query)) {
       echo "<p>Hello " . $username . "!</p>";
     }
     else{
