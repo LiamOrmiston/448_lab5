@@ -14,16 +14,11 @@
   if ($username == ''){
     echo '<p>Username cannot be blank</p>';
   }
-  $exists = "SELECT * FROM Users WHERE user_id= '".$username."';";
-  $RESULT = $mysqli->query($exists);
-  else if(mysqli_num_rows($RESULT)>0){
-  echo "Username Exists! Choose a Different Username.";
-}
-  // = "SELECT * FROM Users WHERE user_id='".$username."';";
-  // $result = $mysqli->query($exists);
-  // else if (mysqli_num_rows($result) > 0) {
-  //   echo "<p>Username already exists. Please choose a different username.</p>";
-  // }
+  $exists = = "SELECT * FROM Users WHERE user_id='".$username."';";
+  $result = $mysqli->query($exists);
+  elseif (mysqli_num_rows($result) > 0) {
+    echo "Username already exists. Please choose a different username.";
+  }
   else{
     $query = "INSERT INTO Users (user_id) VALUES ('$username')";
     if ($result = $mysqli->query($query)){
