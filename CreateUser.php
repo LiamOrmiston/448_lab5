@@ -17,7 +17,7 @@
   $exists = "SELECT * FROM Users WHERE user_id='".$username."';";
   $result = $mysqli->query($exists);
   elseif (mysqli_num_rows($result) > 0) {
-    echo "Username already exists. Please choose a different username.";
+    echo "<p>Username already exists. Please choose a different username.</p>";
   }
   else{
     $query = "INSERT INTO Users (user_id) VALUES ('$username')";
