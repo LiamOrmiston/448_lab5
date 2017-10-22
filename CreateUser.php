@@ -11,21 +11,20 @@
   echo '<p>About to post</p>';
   $username = $_POST['username'];
   echo '<p>Posted</p>';
-  echo "<p>Hello " . $username . "!</p>";
+  // echo "<p>Hello " . $username . "!</p>";
   echo '<div>';
   echo '<h2>';
   if ($username == ''){
     echo 'Username cannot be blank';
   }
   else {
-    $query = "INSERT INTO Users (user_id) VALUES ('$user_id');";
+    $query = "INSERT INTO Users (user_id) VALUES ('$username');";
     if($result = mspli.query($username)) {
       echo "<p>Hello " . $username . "!</p>";
     }
     else{
       echo "$mysqli->error";
     }
-    $result->free();
   }
   echo '</h2>';
   echo '</div>';
