@@ -1,10 +1,19 @@
 <?php
+$mysqli = new mysqli('mysql.eecs.ku.edu', 'lormiston', 'P@$$word123', 'lormiston');
+
 $username = $_POST["username"];
 
-if(mspli.query($username)) {
-  echo "<p>Hello " . $username . "!</p>"
+echo '<h2>';
+if ($username == ''){
+  echo 'Username cannot be blank';
 }
 else {
-  echo "<p>There was an error</p>"
+  $query = "INSERT INTO Users (user_id) VALUES ('$user_id')";
+  if($result = mspli.query($username)) {
+    echo "<p>Hello " . $username . "!</p>"
+  }
+  else{
+    echo "$mysqli->error"
+  }
 }
 ?>
