@@ -8,8 +8,9 @@
       printf("Connect failed: %s\n", $mysqli->connect_error);
       exit();
   }
-
+  echo '<p>About to post</p>';
   $username = $_POST['username'];
+  echo '<p>Posted</p>';
   echo '<div>';
   echo '<h2>';
   if ($username == ''){
@@ -18,10 +19,10 @@
   else {
     $query = "INSERT INTO Users (user_id) VALUES ('$user_id');";
     if($result = mspli.query($username)) {
-      echo "<p>Hello " . $username . "!</p>"
+      echo "<p>Hello " . $username . "!</p>";
     }
     else{
-      echo "$mysqli->error"
+      echo "$mysqli->error";
     }
     $result->free();
   }
