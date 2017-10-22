@@ -11,6 +11,7 @@
   echo '<p>About to post</p>';
   $username = $_POST['username'];
   echo '<p>Posted</p>';
+  echo "<p>Hello " . $username . "!</p>";
   echo '<div>';
   echo '<h2>';
   if ($username == ''){
