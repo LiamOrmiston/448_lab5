@@ -15,6 +15,10 @@
   if ($username == ''){
     echo 'Username cannot be blank';
   }
+  $exists = "SELECT user_id FROM Users WHERE user_id=$username";
+  else if ($exists > 0) {
+    echo "Username already exists. Please choose a different username."
+  }
   else{
     $query = "INSERT INTO Users (user_id) VALUES ('$username')";
     if ($result = $mysqli->query($query)){
