@@ -16,7 +16,7 @@
   }
   $exists = "SELECT * FROM Users WHERE user_id= '".$username."';";
   $RESULT = $mysqli->query($exists);
-  if(mysqli_num_rows($RESULT)>0){
+  else if(mysqli_num_rows($RESULT)>0){
   echo "Username Exists! Choose a Different Username.";
 }
   // = "SELECT * FROM Users WHERE user_id='".$username."';";
