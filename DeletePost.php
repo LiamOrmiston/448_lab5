@@ -9,42 +9,27 @@
     }
 
     echo '<div>';
-    echo "<h2>Select what user's posts you'd like to see</h2>";
-    echo '<form action="ViewUserPosts.php" method="POST">';
-      $query_user = "SELECT * FROM Users";
-      $result = $mysqli->query($query_user);
-      if(mysqli_num_rows($result) > 0){
-        echo "<select name='username'>";
-      	while ($username = $result->fetch_assoc()){
-      		echo "<option value='" . $username['user_id'] . "'>" . $username['user_id'] . '</option>';
-      	}
-      	echo '</select>';
-      }
-      else{
-      	echo '<h2>No usernames exist</h2>';
-      }
-      $result->free();
-      echo '<input type="submit">';
-    echo '</form>';
-    echo '</div>';
-
-    echo '<div>';
-    $username = $_POST['username'];
-    $query_post = "SELECT post_id, content, author_id FROM Posts WHERE author_id='$username'";
+    echo "<h2>Select what posts you'd like to delete</h2>";
+    $query_post = "SELECT post_id, content, author_id FROM Posts";
     $result = $mysqli->query($query_post);
-    if ($username != ''){
-      if(mysqli_num_rows($result) > 0){
-      	echo "<h2>$username's posts:</h2>";
-      	echo '<table>';
-      	echo '<tr><th>post_id</th><th>content</th></tr>';
-      	while ($post = $result->fetch_assoc()){
-      		echo "<tr><td>" . $post['post_id'] . "</td><td>" . $post['content'] . "</td></tr>";
-      	}
-      	echo '</table>';
+
+    if(mysqli_num_rows($result) > 0){
+      echo "<table>";
+      echo '<tr><th>author_id</th><th>content</th><th>post_id</th><th>Delete?</th></tr>';
+      while ($post = $result->fetch_assoc()){
+      echo '<tr>';
+      echo '<td>' . $post['author_id'] . '</td>';
+      echo '<td>' . $post['content'] . '</td>';
+      echo '<td>' . $post['post_id'] . '</td>';
+      echo "<td><input type='checkbox' name='" . $post["post_id"] . "' value='del'></input></td>";
+      echo '</tr>';
       }
-      else{
-      	echo "<h2>$username has not made any posts yet!</h2>";
-      }
+      echo '</table>';
+      echo '<br>';
+      echo '<input type="submit" value="Submit">';
+    }
+    else{
+    	echo '<h2>No posts exist</h2>';
     }
     $result->free();
     echo '</div>';
