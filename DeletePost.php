@@ -33,6 +33,27 @@
     }
     $result->free();
     echo '</div>';
+
+    echo '</div>';
+    $query_delete = "SELECT post_id FROM Posts";
+    $result_delete = $mysqli->query($query_delete);
+    if(mysqli_num_rows($result_delete) > 0){
+    	while ($post = $result_delete->fetch_assoc()){
+    		if($_POST[$post['post_id']] == 'del'){
+    			if ($mysqli->query("DELETE FROM Posts WHERE post_id=" . $post['post_id'])){
+    				echo "<p>Post ID: " . $post['post_id'] . " has successfully been deleted</p>";
+    			}
+    			else{
+    				echo "<p>Post ID: " . $post['post_id'] . " failed to delete</p>";
+    			}
+    		}
+    	}
+    }
+    else{
+    	echo '<h2>Nothing to delete</h2>';
+    }
+    $result->free();
+    echo '</div>';
     $mysqli->close();
     ?>
   </body>
