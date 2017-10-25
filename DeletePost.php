@@ -1,5 +1,6 @@
 <html>
   <body>
+    <form action="DeletePost.php" method="POST">
     <?php
     $mysqli = new mysqli('mysql.eecs.ku.edu', 'lormiston', 'P@$$word123', 'lormiston');
     // connection test
@@ -7,8 +8,6 @@
         printf("Connect failed: %s\n", $mysqli->connect_error);
         exit();
     }
-
-    echo '<form action="DeletePost.php" method="POST">';
 
     echo '<div>';
     echo "<h2>Select what posts you'd like to delete</h2>";
@@ -57,8 +56,8 @@
     $result->free();
 
     echo '</div>';
-    echo '</form>';
     $mysqli->close();
     ?>
+    </form>
   </body>
 </html>
