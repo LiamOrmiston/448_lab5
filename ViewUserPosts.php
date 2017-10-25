@@ -9,19 +9,17 @@
     }
 
     echo '<div>';
-    $query_user = "SELECT user_id FROM Users";
+    $query_user = "SELECT * FROM Users";
     $result = $mysqli->query($query_user);
     if(mysqli_num_rows($result) > 0){
-    	echo '<h2>Users</h2>';
-    	echo '<table>';
-    	echo '<tr><th>user_id</th></tr>';
-    	while ($user = $result->fetch_assoc()){
-    		echo "<tr><td>" . $user['user_id'] . "</td></tr>";
+      echo "<select name='username'>";
+    	while ($username = $result->fetch_assoc()){
+    		echo "<option value='" . $username['user_id'] . "'>" . $username['user_id'] . '</option>';
     	}
-    	echo '</table>';
+    	echo '</select>';
     }
     else{
-    	echo '<h2>No users exist</h2>';
+    	echo '<h2>No usernames exist</h2>';
     }
     $result->free();
     echo '</div>';
