@@ -9,7 +9,7 @@
     }
 
     echo '<div>';
-    <form action="ViewUserPosts.php" method="POST">
+    echo '<form action="ViewUserPosts.php" method="POST">';
       $query_user = "SELECT * FROM Users";
       $result = $mysqli->query($query_user);
       if(mysqli_num_rows($result) > 0){
@@ -23,8 +23,8 @@
       	echo '<h2>No usernames exist</h2>';
       }
       $result->free();
-      <input type="submit">
-    </form>
+      echo '<input type="submit">';
+    echo '</form>';
     echo '</div>';
 
     echo '<div>';
