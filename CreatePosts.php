@@ -13,10 +13,11 @@
   echo '<div>';
   $query_content = "INSERT INTO Posts (content, author_id) VALUES ('$content', '$username');";
   $query_author = "SELECT * FROM Users WHERE user_id='$username';";
+  $run_query = $mysqli->query($query_author);
   if ($content == ''){
     echo '<p>Content cannot be blank</p>';
   }
-  elseif (mysqli_num_rows($query_author) == 0){
+  elseif (mysqli_num_rows($run_query) == 0){
   echo "<h2>User $username does not exist! Please try again or create a new username</h2>";
 }
   else{
