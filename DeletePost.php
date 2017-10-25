@@ -10,6 +10,8 @@
 
     echo '<div>';
     echo "<h2>Select what posts you'd like to delete</h2>";
+
+    echo '<form action="DeletePost.php" method="POST">';
     $query_post = "SELECT post_id, content, author_id FROM Posts";
     $result = $mysqli->query($query_post);
 
@@ -27,6 +29,7 @@
       echo '</table>';
       echo '<br>';
       echo '<input type="submit" value="Submit">';
+    echo '</form>';
     }
     else{
     	echo '<h2>No posts exist</h2>';
