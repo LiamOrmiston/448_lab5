@@ -12,7 +12,7 @@
   $username = $_POST['username'];
   echo '<div>';
   $query_content = "INSERT INTO Posts (content, author_id) VALUES ('$content', '$username');";
-  $query_author = "SELECT user_id FROM Users WHERE user_id='$username';";
+  $query_author = "SELECT * FROM Users WHERE user_id='$username';";
   if ($content == ''){
     echo '<p>Content cannot be blank</p>';
   }
