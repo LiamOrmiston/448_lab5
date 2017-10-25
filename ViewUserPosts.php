@@ -9,17 +9,20 @@
     }
 
     echo '<div>';
-    $query_user = "SELECT * FROM Users";
-    $result = $mysqli->query($query_user);
+    $username = $_POST['username'];
+    $query_post = "SELECT post_id, content, author_id FROM Posts WHERE author_id='$username'";
+    $result = $mysqli->query($query_post);
     if(mysqli_num_rows($result) > 0){
-      echo "<select name='username'>";
-    	while ($username = $result->fetch_assoc()){
-    		echo "<option value='" . $username['user_id'] . "'>" . $username['user_id'] . '</option>';
+    	echo "<h2>$username's posts:</h2>";
+    	echo '<table>';
+    	echo '<tr><th>post_id</th><th>content</th></tr>';
+    	while ($post = $result->fetch_assoc()){
+    		echo "<tr><td>" . $post['post_id'] . "</td><td>" . $post['content'] . "</td></tr>";
     	}
-    	echo '</select>';
+    	echo '</table>';
     }
     else{
-    	echo '<h2>No usernames exist</h2>';
+    	echo "<h2>$username has not made any posts yet!</h2>";
     }
     $result->free();
     echo '</div>';
