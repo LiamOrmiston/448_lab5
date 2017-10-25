@@ -8,26 +8,26 @@
       exit();
   }
 
-  $post = $_POST['post'];
+  $content = $_POST['content'];
   $username = $_POST['username'];
   echo '<div>';
-  if (post == ''){
-    echo '<p>Posts cannot be blank</p>';
+  if ($content == ''){
+    echo '<p>Content cannot be blank</p>';
   }
   else{
-    $query_post = "INSERT INTO Posts (post) VALUES ('$username');";
+    $query_content = "INSERT INTO Posts (content) VALUES ('$content');";
     $query_author = "INSERT INTO Posts (author_id) VALUES ('$username');";
     if ($result_author = $mysqli->query($query_author)){
       echo "<p>Hello " . $username . "!</p>";
     }
-    if ($result_post = $mysqli->query($query_post)){
-      echo "<p>Your post was successfully stored!</p>";
+    if ($result_content = $mysqli->query($query_content)){
+      echo "<p>Your content was successfully posted!</p>";
     }
     else{
       echo "$mysqli->error";
     }
     $result_author->free();
-    $result_post->free();
+    $result_content->free();
   }
   echo '</div>';
   $mysqli->close();
