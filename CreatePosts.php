@@ -9,7 +9,7 @@
   }
 
   $post = $_POST['post'];
-  $username = $_POST['username']
+  $username = $_POST['username'];
   echo '<div>';
   if (post == ''){
     echo '<p>Posts cannot be blank</p>';
