@@ -9,6 +9,25 @@
     }
 
     echo '<div>';
+    <form action="ViewUserPosts.php" method="POST">
+      $query_user = "SELECT * FROM Users";
+      $result = $mysqli->query($query_user);
+      if(mysqli_num_rows($result) > 0){
+        echo "<select name='username'>";
+      	while ($username = $result->fetch_assoc()){
+      		echo "<option value='" . $username['user_id'] . "'>" . $username['user_id'] . '</option>';
+      	}
+      	echo '</select>';
+      }
+      else{
+      	echo '<h2>No usernames exist</h2>';
+      }
+      $result->free();
+      <input type="submit">
+    </form>
+    echo '</div>';
+
+    echo '<div>';
     $username = $_POST['username'];
     $query_post = "SELECT post_id, content, author_id FROM Posts WHERE author_id='$username'";
     $result = $mysqli->query($query_post);
