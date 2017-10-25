@@ -31,7 +31,7 @@
     else{
     	echo '<h2>No posts exist</h2>';
     }
-    echo '<input type="submit" value="Submit">';
+    echo '<input type="submit" value="Delete">';
     $result->free();
     echo '</div>';
 
