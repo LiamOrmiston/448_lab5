@@ -9,8 +9,8 @@
     }
 
     echo '<div>';
-    $user_query = "SELECT user_id FROM Users";
-    $result = $mysqli->query($user_query);
+    $query_user = "SELECT user_id FROM Users";
+    $result = $mysqli->query($query_user);
     if(mysqli_num_rows($result) > 0){
     	echo '<h2>Users</h2>';
     	echo '<table>';

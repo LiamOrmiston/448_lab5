@@ -11,22 +11,22 @@
   $content = $_POST['content'];
   $username = $_POST['username'];
   echo '<div>';
+  $query_content = "INSERT INTO Posts (content, author_id) VALUES ('$content', '$username');";
+  $query_author = "SELECT user_id FROM Users WHERE user_id='$username';";
   if ($content == ''){
     echo '<p>Content cannot be blank</p>';
   }
+  elseif (mysqli_num_rows($query_author) == 0){
+  echo "<h2>User $username does not exist! Please try again or create a new username</h2>";
+}
   else{
-    $query_content = "INSERT INTO Posts (content) VALUES ('$content');";
-    $query_author = "INSERT INTO Posts (author_id) VALUES ('$username');";
-    if ($result_author = $mysqli->query($query_author)){
+    if ($result_content= $mysqli->query($query_content)){
       echo "<p>Hello " . $username . "!</p>";
-    }
-    if ($result_content = $mysqli->query($query_content)){
       echo "<p>Your content was successfully posted!</p>";
     }
     else{
       echo "$mysqli->error";
     }
-    $result_author->free();
     $result_content->free();
   }
   echo '</div>';
