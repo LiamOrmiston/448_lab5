@@ -11,26 +11,24 @@
   $post = $_POST['post'];
   $username = $_POST['username']
   echo '<div>';
-  echo '<h2>';
   if (post == ''){
     echo '<p>Posts cannot be blank</p>';
   }
-  $exists = "SELECT * FROM Users WHERE user_id='".$username."';";
-  $run_exists = $mysqli->query($exists);
-  if (mysqli_num_rows($run_exists) == 0) {
-    echo "<p>Username does not exist. Please choose a different username or create one.</p>";
-  }
   else{
-    $query = "INSERT INTO Users (user_id) VALUES ('$username')";
-    if ($result = $mysqli->query($query)){
+    $query_post = "INSERT INTO Posts (post) VALUES ('$username');";
+    $query_author = "INSERT INTO Posts (author_id) VALUES ('$username');";
+    if ($result_author = $mysqli->query($query_author)){
       echo "<p>Hello " . $username . "!</p>";
+    }
+    if ($result_post = $mysqli->query($query_post)){
+      echo "<p>Your post was successfully stored!</p>";
     }
     else{
       echo "$mysqli->error";
     }
-    $result->free();
+    $result_author->free();
+    $result_post->free();
   }
-  echo '</h2>';
   echo '</div>';
   $mysqli->close();
   ?>
