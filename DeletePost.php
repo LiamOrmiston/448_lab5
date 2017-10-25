@@ -8,10 +8,10 @@
         exit();
     }
 
+    echo '<form action="DeletePost.php" method="POST">';
+
     echo '<div>';
     echo "<h2>Select what posts you'd like to delete</h2>";
-
-    echo '<form action="DeletePost.php" method="POST">';
     $query_post = "SELECT post_id, content, author_id FROM Posts";
     $result = $mysqli->query($query_post);
 
@@ -28,16 +28,15 @@
       }
       echo '</table>';
       echo '<br>';
-      echo '<input type="submit" value="Submit" onclick="return RefreshWindow()>';
-    echo '</form>';
     }
     else{
     	echo '<h2>No posts exist</h2>';
     }
+    echo '<input type="submit" value="Submit">';
     $result->free();
     echo '</div>';
 
-    echo '</div>';
+    echo '<div>';
     $query_delete = "SELECT post_id FROM Posts";
     $result_delete = $mysqli->query($query_delete);
     if(mysqli_num_rows($result_delete) > 0){
@@ -56,7 +55,9 @@
     	echo '<h2>Nothing to delete</h2>';
     }
     $result->free();
+
     echo '</div>';
+    echo '</form>';
     $mysqli->close();
     ?>
   </body>
