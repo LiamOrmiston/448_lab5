@@ -28,7 +28,7 @@
       }
       echo '</table>';
       echo '<br>';
-      echo '<input type="submit" value="Submit">';
+      echo '<input type="submit" value="Submit" onclick="return RefreshWindow()>';
     echo '</form>';
     }
     else{
